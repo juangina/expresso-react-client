@@ -1,0 +1,15 @@
+.ApiTestButton {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+}
+.ApiTestBox {
+    height: 20vh;
+    width: 100%;
+    border: 1px solid #88071b;
+    text-align: center;
+    padding: 20px;
+  }
+  .MuiButton-contained:hover {
+    background-color: black;
+  }
