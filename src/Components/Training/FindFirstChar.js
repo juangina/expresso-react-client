@@ -2,12 +2,8 @@ import './FindFirstChar.css';
 import React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import {SolutionBox} from './StyledComponents';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Link from '@mui/material/Link';
-import Avatar from '@mui/material/Avatar';
-import SendIcon from '@mui/icons-material/Send';
 
 //Create series of data points that has repetion.
 //For example a string of characters 'aabbcdeeefg'.
@@ -29,7 +25,6 @@ for(let i=0; i<20; i++) {
 }
 //start with and empty object
 const hT = {};
-
 for (let char of dSA) {
     //verify if char is a key in hashTable object
     //on each iteration through the string
@@ -74,9 +69,9 @@ function FindFirstChar() {
 
     useEffect(() => {
         // console.log("FindFirstChar Component Mounted");
-        //console.log('dataSeriesArray:',dataSeriesArray);
-        //console.log('hashTable:', hashTable);
-        //console.log('FindFirstCharacterIndex:', findFirstChar);
+        console.log('dataSeriesArray:',dataSeriesArray);
+        console.log('hashTable:', hashTable);
+        console.log('FindFirstCharacterIndex:', findFirstChar);
         //console.log('gameCount', gameCount);
       }, [hashTable, dataSeriesArray, findFirstChar, gameCount])
 
@@ -201,6 +196,9 @@ function FindFirstChar() {
                                 backgroundColor: 'primary.main',
                                 opacity: [0.9, 0.8, 0.7],
                                 },
+                                boxShadow:    (gameActive === false) && (findFirstChar === index) 
+                                        ? '0px 0px 0px 3px rgba(0,0,0,1)'
+                                        : 'none'
                             }}
                         ><div style={{opacity: '1'}}>{index}</div></Box>
                         )
@@ -225,17 +223,29 @@ function FindFirstChar() {
                 {
                     colorSpectrumArray.map((color, index) => {
                         return (
-                            <Box
-                                key={index}
+                            <Box 
                                 sx={{
-                                    width: '9%',
+                                    width: '10%',
                                     height: 'auto',
-                                    marginRight: '5px',
-                                    marginTop: '5px',
-                                    backgroundColor: 'primary.dark',
-                                    opacity: [color, color, color],
-                                }}
-                            ></Box>
+                                    position: 'relative',
+                                    boxShadow:    (gameActive === false) && (dataSeriesArray[findFirstChar] === String(color)) 
+                                            ? '0px 0px 0px 3px rgba(0,0,0,1)'
+                                            : 'none',
+                                }}>
+                                <SolutionBox
+                                    key={index}
+                                    sx={{
+
+                                        opacity: [color, color, color],
+
+                                    }}
+                                >
+                                    {   (gameActive === false) && (dataSeriesArray[findFirstChar] === String(color)) 
+                                        ? findFirstChar
+                                        : ''
+                                    }
+                                </SolutionBox>
+                            </Box>
                         )
                     })
                 }
