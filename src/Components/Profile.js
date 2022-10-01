@@ -8,8 +8,7 @@ import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import TrainingBlocks from './Training/TrainingBlocks';
 
-
-function Profile({auth}) {
+function Profile({auth, setAuth}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [menuItem, setMenuItem] = useState('Dashboard Page');
 
@@ -102,7 +101,7 @@ function Profile({auth}) {
                         <MenuItem onClick={handleClose}>My Training</MenuItem>
                         <MenuItem>
                             <Link 
-                                href='/auth/logout'
+                                href='https://expresso.api.theaccidentallifestyle.net/auth/logout'
                                 underline="none">Logout
                             </Link>
                         </MenuItem>

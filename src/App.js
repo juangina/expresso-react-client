@@ -9,9 +9,9 @@ function App() {
   const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    // console.log("Expresson App Mounted");
-    axios.get('/auth/current-session').then(({data}) => {
-      //console.log('Authorization Response Data:', data);
+    console.log("Expresso App Mounted");
+    axios.get('https://expresso.api.theaccidentallifestyle.net/auth/current-session').then(({data}) => {
+    console.log('Authorization Response Data:', data);
       setAuth(data);
     })
   }, [])
@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <>
-      <Home/>
+      <Home auth={auth} />
     </>
   )
 }
