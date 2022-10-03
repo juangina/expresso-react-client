@@ -8,7 +8,7 @@ import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import TrainingBlocks from './Training/TrainingBlocks';
 
-function Profile({auth, setAuth}) {
+function Profile({auth}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [menuItem, setMenuItem] = useState('Dashboard Page');
 
